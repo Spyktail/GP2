@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Input : MonoBehaviour
+
+public class FPSInput : MonoBehaviour
 {
     [Header("Character Input Values")]
 		public Vector2 move;

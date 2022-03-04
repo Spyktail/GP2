@@ -61,7 +61,7 @@ public class FPSController : MonoBehaviour
 
 		private PlayerInput _playerInput;
 		private CharacterController _controller;
-		private Input _input;
+		private FPSInput _input;
 		private GameObject _mainCamera;
 
 		private const float _threshold = 0.01f;
@@ -80,7 +80,7 @@ public class FPSController : MonoBehaviour
 		private void Start()
 		{
 			_controller = GetComponent<CharacterController>();
-			_input = GetComponent<Input>();
+			_input = GetComponent<FPSInput>();
 			_playerInput = GetComponent<PlayerInput>();
 
 			// reset our timeouts on start
