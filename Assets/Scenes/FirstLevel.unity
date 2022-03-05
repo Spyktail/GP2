@@ -766,7 +766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886408684}
   m_LocalRotation: {x: -0.24129193, y: 0.17413007, z: -0.04405689, w: -0.95368546}
-  m_LocalPosition: {x: -0.10886145, y: 1.375, z: 0.437}
+  m_LocalPosition: {x: 0.01000011, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 104129418}
@@ -851,7 +851,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.10886145, y: 1.375, z: 0.437}
+  m_LocalPosition: {x: 0.01000011, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1236,7 +1236,7 @@ GameObject:
   - component: {fileID: 1261904791}
   - component: {fileID: 1261904790}
   - component: {fileID: 1261904789}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1344,7 +1344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736538980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.59, y: 1.87, z: 1.51}
+  m_LocalPosition: {x: -20.59, y: 0.15, z: 1.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1452,6 +1452,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1257428250966042166, guid: bbe67537b1b96ae4e84e1c13c10cbddb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1257428250966042169, guid: bbe67537b1b96ae4e84e1c13c10cbddb, type: 3}
+      propertyPath: m_TagString
+      value: CinemachineTarget
+      objectReference: {fileID: 0}
     - target: {fileID: 1257428251264084318, guid: bbe67537b1b96ae4e84e1c13c10cbddb, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1499,10 +1507,6 @@ PrefabInstance:
     - target: {fileID: 1257428251264084320, guid: bbe67537b1b96ae4e84e1c13c10cbddb, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1257428251264084321, guid: bbe67537b1b96ae4e84e1c13c10cbddb, type: 3}
-      propertyPath: FallTimeout
-      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbe67537b1b96ae4e84e1c13c10cbddb, type: 3}
