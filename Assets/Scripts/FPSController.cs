@@ -73,7 +73,7 @@ public class FPSController : MonoBehaviour
 
 		public bool isInStart;
 
-
+		public float playerHeightCurrent;
 		public int extraJumpCount;
 
 		private void Awake()
@@ -96,6 +96,7 @@ public class FPSController : MonoBehaviour
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+			playerHeightCurrent = this.transform.position.y;
 		}
 
 		private void Update()
