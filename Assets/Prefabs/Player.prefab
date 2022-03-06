@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257428250966042169}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.051, y: 1.375, z: 0.437}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1257428251264084318}
@@ -86,13 +86,13 @@ MonoBehaviour:
   JumpHeight: 1.2
   Gravity: -15
   JumpTimeout: 0.1
-  FallTimeout: 0.15
+  FallTimeout: 0.2
   Grounded: 1
   GroundedOffset: -0.14
   GroundedRadius: 0.5
   GroundLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8
   CinemachineCameraTarget: {fileID: 1257428250966042169}
   TopClamp: 89
   BottomClamp: -89
