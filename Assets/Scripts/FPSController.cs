@@ -18,7 +18,7 @@ public class FPSController : MonoBehaviour
 
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
-		public float JumpHeight = 1.2f;
+		public float JumpHeight = 2.0f;
 		[Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
 		public float Gravity = -15.0f;
 
@@ -68,6 +68,14 @@ public class FPSController : MonoBehaviour
 		
 		private bool IsCurrentDeviceMouse => _playerInput.currentControlScheme == "KeyboardMouse";
 
+
+
+
+		public bool isInStart;
+
+		public float playerHeightCurrent;
+		public int extraJumpCount;
+
 		private void Awake()
 		{
 			// get a reference to our main camera
@@ -75,6 +83,8 @@ public class FPSController : MonoBehaviour
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
+
+			isInStart = true;
 		}
 
 		private void Start()
@@ -86,6 +96,7 @@ public class FPSController : MonoBehaviour
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+			playerHeightCurrent = this.transform.position.y;
 		}
 
 		private void Update()
@@ -93,6 +104,7 @@ public class FPSController : MonoBehaviour
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			ExtraJumps();
 		}
 
 		private void LateUpdate()
@@ -133,7 +145,6 @@ public class FPSController : MonoBehaviour
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
-
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
 			// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
@@ -176,10 +187,16 @@ public class FPSController : MonoBehaviour
 			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 		}
 
+		public float doubleJumpHeight;
+		public bool doubleJump = false;
+		public bool singleJump = false;
+
 		private void JumpAndGravity()
 		{
 			if (Grounded)
 			{
+				singleJump = true; 
+				doubleJump = true;
 				// reset the fall timeout timer
 				_fallTimeoutDelta = FallTimeout;
 
@@ -188,14 +205,14 @@ public class FPSController : MonoBehaviour
 				{
 					_verticalVelocity = -2f;
 				}
-
+		
 				// Jump
-				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+				if (singleJump && _input.jump && _jumpTimeoutDelta <= 0.0f)
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
 					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+					singleJump = false;
 				}
-
 				// jump timeout
 				if (_jumpTimeoutDelta >= 0.0f)
 				{
@@ -212,7 +229,6 @@ public class FPSController : MonoBehaviour
 				{
 					_fallTimeoutDelta -= Time.deltaTime;
 				}
-
 				// if we are not grounded, do not jump
 				_input.jump = false;
 			}
@@ -222,6 +238,20 @@ public class FPSController : MonoBehaviour
 			{
 				_verticalVelocity += Gravity * Time.deltaTime;
 			}
+
+		}
+		
+		public void ExtraJumps()
+		{
+			if (!Grounded)
+			{
+				if (doubleJump && _input.doubleJump)
+					{
+						_verticalVelocity = Mathf.Sqrt(doubleJumpHeight * -2f * Gravity);
+						doubleJump = false;
+						_input.doubleJump = false;
+					}
+			}
 		}
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
@@ -230,6 +260,7 @@ public class FPSController : MonoBehaviour
 			if (lfAngle > 360f) lfAngle -= 360f;
 			return Mathf.Clamp(lfAngle, lfMin, lfMax);
 		}
+
 
 		private void OnDrawGizmosSelected()
 		{

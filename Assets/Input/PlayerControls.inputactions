@@ -33,10 +33,10 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Run",
+                    "name": "Sprint",
                     "type": "PassThrough",
                     "id": "9624fc18-3aab-450f-a51a-f555a8f55172",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -51,9 +51,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pause",
+                    "name": "DJ",
                     "type": "Button",
-                    "id": "392d87b6-696c-470a-942d-dbeb987a2631",
+                    "id": "25e4f92a-c209-4f1d-9b4e-9ebeb31b375d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -178,7 +178,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "Run",
+                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -189,7 +189,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Run",
+                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -217,12 +217,12 @@
                 },
                 {
                     "name": "",
-                    "id": "583f0202-716b-4eba-9d85-649d419b9583",
-                    "path": "<Keyboard>/p",
+                    "id": "7fad094a-ae12-46d7-abd7-d9b41ee4b7dd",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Pause",
+                    "groups": "KeyboardMouse",
+                    "action": "DJ",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

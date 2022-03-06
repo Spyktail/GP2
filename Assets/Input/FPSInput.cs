@@ -11,6 +11,7 @@ public class FPSInput : MonoBehaviour
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool doubleJump;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -40,6 +41,11 @@ public class FPSInput : MonoBehaviour
 			JumpInput(value.isPressed);
 		}
 
+		public void OnDJ(InputValue value)
+		{
+			DJInput(value.isPressed);
+		}
+
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
@@ -62,6 +68,11 @@ public class FPSInput : MonoBehaviour
 		public void JumpInput(bool newJumpState)
 		{
 			jump = newJumpState;
+		}
+
+		public void DJInput(bool newDJState)
+		{
+			doubleJump = newDJState;
 		}
 
 		public void SprintInput(bool newSprintState)
