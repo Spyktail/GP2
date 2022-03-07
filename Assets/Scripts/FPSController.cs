@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FPSController : MonoBehaviour
 {
@@ -141,6 +142,8 @@ public class FPSController : MonoBehaviour
 			}
 		}
 
+		
+
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
@@ -274,4 +277,8 @@ public class FPSController : MonoBehaviour
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
 		
+		void OnTriggerEnter(Collider other)
+		{
+			SceneManager.LoadSceneAsync("LoseScene");
+		}
 }
