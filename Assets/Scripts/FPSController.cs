@@ -106,6 +106,7 @@ public class FPSController : MonoBehaviour
 			GroundedCheck();
 			Move();
 			ExtraJumps();
+			ExitGame();
 		}
 
 		private void LateUpdate()
