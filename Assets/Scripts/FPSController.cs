@@ -106,6 +106,7 @@ public class FPSController : MonoBehaviour
 			GroundedCheck();
 			Move();
 			ExtraJumps();
+			ExitGame();
 		}
 
 		private void LateUpdate()
@@ -244,6 +245,14 @@ public class FPSController : MonoBehaviour
 
 		}
 		
+		void ExitGame()
+		{
+			if (_input.escape)
+				Application.Quit();
+
+			Debug.Log("Quit");
+		}
+
 		public void ExtraJumps()
 		{
 			if (!Grounded)
@@ -279,6 +288,6 @@ public class FPSController : MonoBehaviour
 		
 		void OnTriggerEnter(Collider other)
 		{
-			SceneManager.LoadSceneAsync("LoseScene");
+			SceneManager.LoadSceneAsync("LoseScreen");
 		}
 }
