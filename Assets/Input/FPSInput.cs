@@ -12,6 +12,7 @@ public class FPSInput : MonoBehaviour
 		public bool jump;
 		public bool sprint;
 		public bool doubleJump;
+		public bool escape;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -50,6 +51,11 @@ public class FPSInput : MonoBehaviour
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnEscape(InputValue value)
+		{
+			EscapeInput(value.isPressed);
+		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -78,6 +84,11 @@ public class FPSInput : MonoBehaviour
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
+		}
+
+		public void EscapeInput(bool newEscapeState)
+		{
+			escape = newEscapeState;
 		}
 
 #if !UNITY_IOS || !UNITY_ANDROID

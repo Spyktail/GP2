@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.SceneManagement;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -83,6 +84,9 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-
+    void OnColliderEnter(Collider other)
+		{
+			SceneManager.LoadSceneAsync("LoseScreen");
+		}
 
 }
