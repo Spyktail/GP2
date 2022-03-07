@@ -31,6 +31,11 @@ public class Enemy : MonoBehaviour
 
      
    }
+
+   void FixedUpdate()
+   {
+       //rb.AddRelativeForce( Vector3.up * (rb.mass * Mathf.Abs(Physics.gravity.y) ) );
+   }
  
    protected void ChangeMaterial(GameObject target, Material material)
    {
